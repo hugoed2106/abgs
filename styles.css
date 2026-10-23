@@ -1,3 +1,15 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: .9rem var(--pad);
+    background:  transparent;
+    backdrop-filter: blur(8px);
+    font: 600 .9375rem / 1 var(--sans);
+}
 .hero {
     background-image: url(images/abgs-img1.png);
 }
