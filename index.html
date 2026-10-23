@@ -8,29 +8,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <section id="09">
-            <header>
-                <nav class="container">
-                    <div class="logo">
-                        <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="logo" width="75" height="75">
-                    </div>
-                    <button class="hamburger" aria-label="Menú de navegación">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <ul class="nav-links">
-                        <li><a href="#home">Inicio</a></li>
-                        <li><a href="#practice-areas">Areas Especializadas</a></li>
-                        <li><a href="#about">Acerca de Nosotros</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                        <li hidden><a class="a2" href="https://abogados-elias-y-pena.github.io/inicio/descargar-aplicacion/">Descargar Aplicación</a></li>
-                    </ul>
-                </nav>
-            </header>    
-        </section>
-        <main>
-          
+    <header>
+        <nav class="container" aria-label="Navegación principal">
+            <div class="logo">
+                <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="Logo de Elias y Peña Abogados" width="75" height="75">
+            </div>
+            <button class="hamburger" type="button" aria-label="Menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#practice-areas">Áreas Especializadas</a></li>
+                <li><a href="#about">Acerca de Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li hidden>
+                    <a class="a2" href="https://abogados-elias-y-pena.github.io/inicio/descargar-aplicacion/">Descargar Aplicación</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -40,73 +39,29 @@
                 </div>
             </div>
         </section>
-          
         <section id="practice-areas" class="practice-areas">
             <div class="container">
-              <h2>Áreas Especializadas</h2>
-        <label for="framework-select"></label>
-        <select id="framework-select">
-            <option value="">Selecciona una Área</option>
-            <option value="react">Área 1</option>
-            <option value="vue">Área 2</option>
-            <option value="angular">Área 3</option>
-            <option value="svelte">Área 4</option>
-        </select>
-        <div id="info-container" style="display: none;">
-            <h2 id="framework-name"></h2>
-            <p id="framework-description"></p>
-        </div>
-    </div>
-
-    <script>
-        const select = document.getElementById('framework-select');
-        const infoContainer = document.getElementById('info-container');
-        const frameworkName = document.getElementById('framework-name');
-        const frameworkDescription = document.getElementById('framework-description');
-
-        const frameworkInfo = {
-            react: {
-                name: 'Área 1',
-                description: 'Poner lo que sea.',
-                logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=='
-            },
-            vue: {
-                name: 'Área 2',
-                description: 'Poner lo que sea.',
-                logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=='
-            },
-            angular: {
-                name: 'Área 3',
-                description: 'Poner lo que sea.',
-                logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=='
-            },
-            svelte: {
-                name: 'Área 4',
-                description: 'Poner lo que sea.',
-                logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=='
-            }
-        };
-
-        select.addEventListener('change', function() {
-            const selectedFramework = this.value;
-            if (selectedFramework) {
-                const info = frameworkInfo[selectedFramework];
-                frameworkName.innerHTML = `<img src="${info.logo}" alt="${info.name} logo" class="framework-logo">${info.name}`;
-                frameworkDescription.textContent = info.description;
-                infoContainer.style.display = 'block';
-            } else {
-                infoContainer.style.display = 'none';
-            }
-        });
-    </script>
-          </section>
-
+                <h2>Áreas Especializadas</h2>
+                <label for="area-select">Selecciona un área</label>
+                <select id="area-select">
+                    <option value="">Selecciona una Área</option>
+                    <option value="area1">Área 1</option>
+                    <option value="area2">Área 2</option>
+                    <option value="area3">Área 3</option>
+                    <option value="area4">Área 4</option>
+                </select>
+                <article id="area-info" hidden>
+                    <h3 id="area-name"></h3>
+                    <p id="area-description"></p>
+                </article>
+            </div>
+        </section>
         <section id="about" class="about">
             <div class="container">
                 <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="Logo">
-                    </div>
+                    <figure class="about-image">
+                        <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="Logo de Elias y Peña Abogados">
+                    </figure>
                     <div class="about-text">
                         <h2>Acerca de Nosotros</h2>
                         <p>Desde ####</p>
@@ -115,80 +70,138 @@
                 </div>
             </div>
         </section>
-
         <section id="contact" class="contact">
             <div class="container-3">
                 <h2>Contáctanos</h2>
-                <h3><span style="display: none;">Enviar Datos <span style="font-weight: bold;">|</span></span> <a style="color: white; text-decoration: none;" href="#social-networks">Gmail</a> | <a style="color: white; text-decoration: none;" href="#social-networks">WhatsApp</a></h3>
-                    <section>
-                        <h4>Con <span style="font-weight: bold; color: red;">*</span> es obligatorio</h4>
-                        <form class="contact-form" action="/guardar-contacto" method="post">
-                            <div class="form-group">
-                                <label for="nombre">Nombre<span style="color: red;">*</span></label>
-                                <input type="text" id="nombre" name="nombre">
-                            </div>
-                            <div class="form-group">
-                                <label for="correo">Correo<span style="color: red;">*</span></label>
-                                <input type="email" id="correo" name="correo">
-                            </div>
-                            <div class="form-group">
-                                <label for="numero">No. de Teléfono<span style="color: red;">*</span></label>
-                                <input type="tel" id="numero" name="numero">
-                            </div>
-                            <div class="form-group">
-                                <label for="mensaje">Mensaje<span style="color: red;">*</span></label>
-                                <textarea id="mensaje" name="mensaje"></textarea>
-                            </div>
-                            <button type="submit" class="submit-button">Enviar Mensaje</button>
-                        </form>
-                    </section>
-                <h3>Nuestras Redes Sociales</h3>
-              <section id="social-networks"></section>
-                  <div class="container-2">
-                    <button-2>
-                        <a href="https://mailto:h.eliass1017@gmail.com" target="_blank">
-                            <img src="https://cdn.icon-icons.com/icons2/2631/PNG/512/gmail_new_logo_icon_159149.png" alt="Gmail Button" width="50" height="50">
-                        </a>
-                    </button-2>
-                    <button-2>
-                        <a href="https://wa.me/4181106552">
-                            <img src="https://cdn.icon-icons.com/icons2/729/PNG/512/whatsapp_icon-icons.com_62756.png" alt="WhatsApp Button 1" width="50" height="50">
-                        </a>
-                    </button-2>
-                </div>
+                <nav aria-label="Medios de contacto">
+                    <ul>
+                        <li hidden><a href="#contact-form">Enviar Datos</a></li>
+                        <li><a href="#social-networks">Gmail</a></li>
+                        <li><a href="#social-networks">WhatsApp</a></li>
+                    </ul>
+                </nav>
+                <form id="contact-form" class="contact-form" action="/guardar-contacto" method="post">
+                    <p>Los campos con <strong>*</strong> son obligatorios</p>
+                    <div class="form-group">
+                        <label for="nombre">Nombre <span aria-hidden="true">*</span></label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo <span aria-hidden="true">*</span></label>
+                        <input type="email" id="correo" name="correo" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero">No. de Teléfono <span aria-hidden="true">*</span></label>
+                        <input type="tel" id="numero" name="numero" autocomplete="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Enviar Mensaje</button>
+                </form>
+                <section id="social-networks" class="container-2">
+                    <h3>Nuestras Redes Sociales</h3>
+                    <ul>
+                        <li>
+                            <a href="mailto:h.eliass1017@gmail.com" target="_blank" rel="noopener noreferrer">
+                                <img src="https://cdn.icon-icons.com/icons2/2631/PNG/512/gmail_new_logo_icon_159149.png" alt="Enviar correo por Gmail" width="50" height="50">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/4181106552" target="_blank" rel="noopener noreferrer">
+                                <img src="https://cdn.icon-icons.com/icons2/729/PNG/512/whatsapp_icon-icons.com_62756.png" alt="Escribir por WhatsApp" width="50" height="50">
+                            </a>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </section>
     </main>
-    <header>
-        <nav class="container">
+    <footer>
+        <nav class="container" aria-label="Información del sitio">
             <div class="logo">
-                <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="logo" width="75" height="75">
+                <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="Logo de Elias y Peña Abogados" width="75" height="75">
             </div>
             <ul class="nav-links1">
-                <li><a href="https://programmer-hugo.github.io/about-me/" target="_blank">Hecho por Hugo Elias</a></li>
-                <li><a href="politica-de-seguridad-de-la-informacion/" target="_blank">Política de Seguridad de la Información</a></li>
-              <li><a>&copy; 2025. Todos los Derechos Reservados.</a></li>
+                <li><a href="https://programmer-hugo.github.io/about-me/" target="_blank" rel="noopener noreferrer">Hecho por Hugo Elias</a></li>
+                <li><a href="politica-de-seguridad-de-la-informacion/" target="_blank" rel="noopener noreferrer">Política de Seguridad de la Información</a></li>
+                <li><small>&copy; 2025. Todos los Derechos Reservados.</small></li>
             </ul>
         </nav>
-    </header>
-  
+    </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ---------- Menú hamburguesa ---------- */
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
 
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                navLinks.classList.toggle('show');
+            function cerrarMenu() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('show');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+
+            hamburger.addEventListener('click', function () {
+                const abierto = navLinks.classList.toggle('show');
+                hamburger.classList.toggle('active', abierto);
+                hamburger.setAttribute('aria-expanded', String(abierto));
             });
 
-            // Close menu when a link is clicked
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('show');
-                });
+            navLinks.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', cerrarMenu);
             });
+
+            /* ---------- Áreas especializadas ---------- */
+            const select = document.getElementById('area-select');
+            const infoContainer = document.getElementById('area-info');
+            const areaName = document.getElementById('area-name');
+            const areaDescription = document.getElementById('area-description');
+
+            const logoPorDefecto = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==';
+
+            const areas = {
+                area1: {
+                    nombre: 'Área 1',
+                    descripcion: 'Poner lo que sea.',
+                    logo: logoPorDefecto
+                },
+                area2: {
+                    nombre: 'Área 2',
+                    descripcion: 'Poner lo que sea.',
+                    logo: logoPorDefecto
+                },
+                area3: {
+                    nombre: 'Área 3',
+                    descripcion: 'Poner lo que sea.',
+                    logo: logoPorDefecto
+                },
+                area4: {
+                    nombre: 'Área 4',
+                    descripcion: 'Poner lo que sea.',
+                    logo: logoPorDefecto
+                }
+            };
+
+            select.addEventListener('change', function () {
+                const area = areas[this.value];
+
+                if (!area) {
+                    infoContainer.hidden = true;
+                    return;
+                }
+
+                const logo = document.createElement('img');
+                logo.src = area.logo;
+                logo.alt = 'Logo de ' + area.nombre;
+                logo.className = 'framework-logo';
+
+                areaName.replaceChildren(logo, area.nombre);
+                areaDescription.textContent = area.descripcion;
+                infoContainer.hidden = false;
+            });
+
         });
     </script>
 </body>
