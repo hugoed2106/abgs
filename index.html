@@ -86,29 +86,31 @@
                 <nav aria-label="Medios de contacto">
                     <ul>
                         <li><a href="#contact-form">Enviar Datos</a></li>
+                        <li id="ver-datos" hidden><a href="mis-datos/">Ver mis datos</a></li>
                         <li><a href="mailto:h.eliass1017@gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a></li>
                         <li><a href="https://wa.me/4181106552" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
                     </ul>
                 </nav>
-                <form id="contact-form" class="contact-form" action="/guardar-contacto" method="post">
+                <form id="contact-form" class="contact-form">
                     <p>Los campos con <strong>*</strong> son obligatorios</p>
                     <div class="form-group">
                         <label for="nombre">Nombre <span aria-hidden="true">*</span></label>
-                        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="100" required>
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo <span aria-hidden="true">*</span></label>
-                        <input type="email" id="correo" name="correo" autocomplete="email" required>
+                        <input type="email" id="correo" name="correo" autocomplete="email" maxlength="150" required>
                     </div>
                     <div class="form-group">
                         <label for="numero">No. de Teléfono <span aria-hidden="true">*</span></label>
-                        <input type="tel" id="numero" name="numero" autocomplete="tel" required>
+                        <input type="tel" id="numero" name="numero" autocomplete="tel" maxlength="30" required>
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
-                        <textarea id="mensaje" name="mensaje" required></textarea>
+                        <textarea id="mensaje" name="mensaje" maxlength="1000" required></textarea>
                     </div>
                     <button type="submit" class="submit-button">Enviar Mensaje</button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
@@ -125,7 +127,7 @@
             </ul>
         </nav>
     </footer>
-    <script src="scripts.js"></script>
+    <script type="module" src="scripts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const select = document.getElementById('area-select');

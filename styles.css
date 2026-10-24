@@ -352,6 +352,24 @@ header img {
     filter: brightness(1.1);
     transform: translateY(-1px);
 }
+.submit-button:disabled {
+    opacity: .6;
+    cursor: wait;
+    transform: none;
+}
+.form-status {
+    margin: 1rem 0 0;
+    min-height: 1.4em;
+    text-align: center;
+    font-size: .95rem;
+    color: var(--muted);
+}
+.form-status.ok {
+    color: #8fd19e;
+}
+.form-status.error {
+    color: #ff8f8f;
+}
 
 footer {
     background: var(--foot);
