@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Panel de datos | Elias y Peña Abogados</title>
+    <link rel="icon" href="https://abogados-elias-y-pena.github.io/Image2/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="../" class="logo" aria-label="Ir al sitio">
+            <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="Logo de Elias y Peña Abogados" width="75" height="75">
+        </a>
+        <div id="sesion" class="sesion" hidden>
+            <span id="usuario" class="usuario"></span>
+            <button type="button" id="btn-salir" class="btn btn-borde">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="vista-carga" class="vista aviso">
+            <p>Cargando...</p>
+        </section>
+
+        <section id="vista-login" class="vista tarjeta" hidden>
+            <h1>Panel de datos</h1>
+            <span class="line-span"></span>
+            <p>Acceso restringido. Inicia sesión con una cuenta autorizada.</p>
+            <button type="button" id="btn-login" class="btn">Iniciar sesión con Google</button>
+            <p id="login-error" class="mensaje error" role="alert"></p>
+        </section>
+
+        <section id="vista-denegado" class="vista tarjeta" hidden>
+            <h1>Sin acceso</h1>
+            <span class="line-span"></span>
+            <p>La cuenta <strong id="correo-denegado"></strong> no está autorizada para ver esta página.</p>
+            <p>Cierra sesión e ingresa con una cuenta autorizada.</p>
+        </section>
+
+        <section id="vista-panel" class="vista panel" hidden>
+            <h1>Datos recibidos</h1>
+            <span class="line-span"></span>
+
+            <div class="barra">
+                <div class="campo campo-grande">
+                    <label for="buscar">Buscar</label>
+                    <input type="search" id="buscar" placeholder="Nombre, fecha, ID o UID..." autocomplete="off">
+                </div>
+                <div class="campo">
+                    <label for="campo">Buscar en</label>
+                    <select id="campo">
+                        <option value="todo">Todos los campos</option>
+                        <option value="nombre">Nombre del cliente</option>
+                        <option value="fecha">Fecha</option>
+                        <option value="id">ID</option>
+                        <option value="uid">UID</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="desde">Desde</label>
+                    <input type="date" id="desde">
+                </div>
+                <div class="campo">
+                    <label for="hasta">Hasta</label>
+                    <input type="date" id="hasta">
+                </div>
+                <div class="acciones">
+                    <button type="button" id="btn-limpiar" class="btn btn-borde">Limpiar</button>
+                    <button type="button" id="btn-actualizar" class="btn">Actualizar</button>
+                </div>
+            </div>
+
+            <p id="resumen" class="resumen" role="status" aria-live="polite"></p>
+            <p class="pista">Haz clic en los encabezados para ordenar.</p>
+
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" data-clave="fecha"><button type="button" data-clave="fecha">Fecha</button></th>
+                            <th scope="col" data-clave="nombre"><button type="button" data-clave="nombre">Nombre</button></th>
+                            <th scope="col" data-clave="correo"><button type="button" data-clave="correo">Correo</button></th>
+                            <th scope="col" data-clave="numero"><button type="button" data-clave="numero">Teléfono</button></th>
+                            <th scope="col">Mensaje</th>
+                            <th scope="col" data-clave="id"><button type="button" data-clave="id">ID</button></th>
+                            <th scope="col" data-clave="uid"><button type="button" data-clave="uid">UID</button></th>
+                        </tr>
+                    </thead>
+                    <tbody id="filas"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
