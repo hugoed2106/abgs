@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis datos | Elias y Peña Abogados</title>
+    <link rel="icon" href="https://abogados-elias-y-pena.github.io/Image2/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="../" class="logo" aria-label="Volver al inicio">
+            <img src="https://abogados-elias-y-pena.github.io/Image2/logo.png" alt="Logo de Elias y Peña Abogados" width="75" height="75">
+        </a>
+        <div class="derecha">
+            <span id="usuario" class="usuario" hidden></span>
+            <button type="button" id="btn-salir" class="btn btn-borde" hidden>Cerrar sesión</button>
+            <a href="../" class="back-link">← Volver al inicio</a>
+        </div>
+    </header>
+    <main>
+        <section class="datos">
+            <h1>Mis datos</h1>
+            <span class="line-span"></span>
+            <p id="estado" class="estado" role="status" aria-live="polite">Cargando...</p>
+            <div id="acceso" class="acceso" hidden>
+                <button type="button" id="btn-login" class="btn">Iniciar sesión con Google</button>
+            </div>
+            <div id="lista" class="lista"></div>
+        </section>
+    </main>
+    <script type="module">
+        import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+        import { db, COLLECTION_ID } from "../fb-app.js";
+        import { alCambiarSesion, cerrarSesion, iniciarSesion } from "../auth.js";
+
+        const estado = document.getElementById("estado");
+        const lista = document.getElementById("lista");
+        const acceso = document.getElementById("acceso");
+        const usuarioEl = document.getElementById("usuario");
+        const btnSalir = document.getElementById("btn-salir");
+
+        function fila(termino, valor) {
+            const dt = document.createElement("dt");
+            dt.textContent = termino;
+            const dd = document.createElement("dd");
+            dd.textContent = valor || "—";
+            return [dt, dd];
+        }
+
+        function tarjeta(dato) {
+            const article = document.createElement("article");
+            article.className = "dato";
+
+            const fecha = dato.createdAt && dato.createdAt.toDate
+                ? dato.createdAt.toDate().toLocaleString("es-MX", { dateStyle: "long", timeStyle: "short" })
+                : "";
+
+            const h2 = document.createElement("h2");
+            h2.textContent = fecha || "Envío reciente";
+
+            const dl = document.createElement("dl");
+            dl.append(
+                ...fila("Nombre", dato.nombre),
+                ...fila("Correo", dato.correo),
+                ...fila("Teléfono", dato.numero),
+                ...fila("Mensaje", dato.mensaje)
+            );
+
+            article.append(h2, dl);
+            return article;
+        }
+
+        async function cargar(user) {
+            estado.textContent = "Cargando...";
+            lista.replaceChildren();
+
+            try {
+                const consulta = query(collection(db, COLLECTION_ID), where("uid", "==", user.uid));
+                const snapshot = await getDocs(consulta);
+
+                if (!usuarioEl.textContent.endsWith(user.email)) return; // la sesión cambió
+
+                if (snapshot.empty) {
+                    estado.textContent = "Esta cuenta aún no ha enviado datos.";
+                    return;
+                }
+
+                const datos = snapshot.docs
+                    .map(function (d) { return d.data(); })
+                    .sort(function (a, b) {
+                        const ta = a.createdAt ? a.createdAt.toMillis() : 0;
+                        const tb = b.createdAt ? b.createdAt.toMillis() : 0;
+                        return tb - ta;
+                    });
+
+                estado.textContent = "";
+                lista.replaceChildren(...datos.map(tarjeta));
+            } catch (error) {
+                console.error("Error al cargar los datos:", error);
+                estado.textContent = "No se pudieron cargar tus datos. Inténtalo más tarde.";
+            }
+        }
+
+        document.getElementById("btn-login").addEventListener("click", async function () {
+            try {
+                await iniciarSesion();
+            } catch (error) {
+                if (error.code === "auth/popup-closed-by-user" || error.code === "auth/cancelled-popup-request") return;
+                console.error("Error al iniciar sesión:", error);
+                estado.textContent = "No se pudo iniciar sesión. Inténtalo de nuevo.";
+            }
+        });
+
+        btnSalir.addEventListener("click", function () {
+            cerrarSesion();
+        });
+
+        alCambiarSesion(function (user) {
+            lista.replaceChildren();
+
+            if (!user) {
+                usuarioEl.hidden = true;
+                usuarioEl.textContent = "";
+                btnSalir.hidden = true;
+                acceso.hidden = false;
+                estado.textContent = "Inicia sesión con la cuenta con la que enviaste tus datos.";
+                return;
+            }
+
+            usuarioEl.textContent = user.email;
+            usuarioEl.hidden = false;
+            btnSalir.hidden = false;
+            acceso.hidden = true;
+            cargar(user);
+        });
+    </script>
+</body>
+</html>
