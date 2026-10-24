@@ -36,6 +36,7 @@ body {
     color: var(--ink);
 }
 
+/* Header + hero comparten la imagen de fondo y se adaptan a cualquier pantalla */
 .inicio {
     background-color: var(--top);
     background-image: url(images/abgs-img1.png);
@@ -141,7 +142,6 @@ header img {
 .hero p {
     font-size: 1.2em;
     margin-top: 30px;
-    text-align: center;
 }
 .cta-button {
     background-color: var(--color-bg);
@@ -361,6 +361,35 @@ header img {
     opacity: .6;
     cursor: wait;
     transform: none;
+}
+.cuenta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+}
+.cuenta-estado {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+    overflow-wrap: anywhere;
+}
+.btn-cuenta {
+    padding: 8px 20px;
+    background: transparent;
+    color: var(--color-bg);
+    border: 1px solid var(--color-bg);
+    border-radius: 15px;
+    font: 600 15px / 1 var(--sans);
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+.btn-cuenta:hover {
+    background: var(--color-bg);
+    color: white;
 }
 .form-status {
     margin: 1rem 0 0;
