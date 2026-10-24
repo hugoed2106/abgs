@@ -141,6 +141,7 @@ header img {
 .hero p {
     font-size: 1.2em;
     margin-top: 30px;
+    text-align: center;
 }
 .cta-button {
     background-color: var(--color-bg);
