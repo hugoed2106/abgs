@@ -32,12 +32,16 @@ body {
 
 body {
     background-color: var(--top);
-    background-image: url(images/abgs-img1.png);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
     font-family: var(--sans);
     color: var(--ink);
+}
+
+.inicio {
+    background-color: var(--top);
+    background-image: url(images/abgs-img1.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 [hidden] {
@@ -413,6 +417,9 @@ footer .logo img {
 }
 
 @media (max-width: 768px) {
+    .inicio {
+        background-position: 75% center; /* en móvil se ve la estatua; sube o baja el % para mover la imagen */
+    }
     header,
     .bar {
         flex-wrap: wrap;
